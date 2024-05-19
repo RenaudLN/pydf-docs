@@ -1,4 +1,4 @@
-FROM python:3.12-slim-buster
+FROM python:3.12
 
 # Copy local code to the container image.
 ENV APP_HOME /app
