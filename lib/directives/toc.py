@@ -41,7 +41,7 @@ class TOC(TableOfContents):
         content = dmc.Stack([
             # ad,
             heading, *links, dmc.Space(h=20)
-        ], gap=6, px=25)
+        ], gap="0.5rem", p="2rem")
         return dmc.AppShellAside(
             children=dmc.ScrollArea(content, type="never"), withBorder=False
         )
