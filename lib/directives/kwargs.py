@@ -5,9 +5,9 @@ import dash_mantine_components as dmc
 from dash.development.base_component import Component
 from markdown2dash.src.directives.kwargs import Kwargs as KwargsBase
 
+
 def convert_docstring_to_dict(docstring):
     """Convert numpy style parameter docstring to a list of dicts with keys name, type, description"""
-
     lines: list[str] = docstring.split("----------\n")[-1].split("\n")
 
     params = []
@@ -24,9 +24,9 @@ def convert_docstring_to_dict(docstring):
 
     return params
 
-class Kwargs(KwargsBase):
 
-    def hook(self, md, state):
+class Kwargs(KwargsBase):
+    def hook(self, md, state):  # noqa: ARG002
         sections = []
 
         for tok in state.tokens:
@@ -44,7 +44,7 @@ class Kwargs(KwargsBase):
             docstring = inspect.getdoc(component).split("----------\n")[-1]
             attrs["kwargs"] = convert_docstring_to_dict(docstring)
 
-    def render(self, renderer, title: str, content: str, **options) -> Component:
+    def render(self, renderer, title: str, content: str, **options) -> Component:  # noqa: ARG002
         data = options.pop("kwargs")
         if data:
             kwargs = dmc.Stack(
@@ -53,11 +53,19 @@ class Kwargs(KwargsBase):
                         [
                             dmc.Group(
                                 [
-                                    dmc.Text(dmc.Code(arg["name"], style={"fontSize": "inherit"}), fw=600),
+                                    dmc.Text(
+                                        dmc.Code(arg["name"], style={"fontSize": "inherit"}),
+                                        fw=600,
+                                    ),
                                     dmc.Text(
                                         dmc.CodeHighlight(
                                             arg["type"],
-                                            styles={"pre": {"fontSize": "inherit", "padding": "0 0.5rem"}},
+                                            styles={
+                                                "pre": {
+                                                    "fontSize": "inherit",
+                                                    "padding": "0 0.5rem",
+                                                }
+                                            },
                                             language="py",
                                             withCopyButton=False,
                                             py=0,

@@ -1,20 +1,19 @@
 import dash_mantine_components as dmc
-from dash_pydantic_form import ModelForm
 from dash import Input, Output, State, callback, html
+from dash_pydantic_form import ModelForm
 from pydantic import BaseModel, Field, ValidationError
 
-email_regex = r'^\S+@\S+\.\S+$'
+email_regex = r"^\S+@\S+\.\S+$"
+
+
 class LoginData(BaseModel):
     email: str = Field(
         title="Email",
         description="Work email only, no gmail allowed",
         pattern=email_regex,
     )
-    password: str = Field(
-        title="Password",
-        description="Make it strong",
-        min_length=6
-    )
+    password: str = Field(title="Password", description="Make it strong", min_length=6)
+
 
 component = dmc.Stack(
     [
@@ -23,6 +22,7 @@ component = dmc.Stack(
         html.Div(id="output"),
     ]
 )
+
 
 @callback(
     Output("output", "children"),

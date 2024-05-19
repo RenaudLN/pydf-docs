@@ -1,6 +1,6 @@
 from typing import Literal
 
-from dash_pydantic_form import ModelForm
+from dash_pydantic_form import ModelForm, fields
 from pydantic import BaseModel, Field
 
 BASE_RENDER = "accordion"
@@ -23,4 +23,5 @@ bob = User(
         {"name": "Felix", "species": "cat"},
     ],
 )
-component = ModelForm(bob, "user", "list1")
+
+component = ModelForm(bob, "user", "table1", fields_repr={"pets": fields.EditableTable()})

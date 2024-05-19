@@ -6,16 +6,18 @@ from dash_pydantic_form import ModelForm
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
-
 BASE_RENDER = "accordion"
+
 
 class Pet(BaseModel):
     name: str = Field(title="Name")
     species: Literal["cat", "dog"] = Field(title="Species")
 
+
 class User(BaseModel):
     username: str = Field(title="Username")
     pets: list[Pet] = Field(title="Pets", default_factory=list)
+
 
 def create_form(render: str = BASE_RENDER, user: User | None = None):
     user = user or User(
@@ -23,7 +25,7 @@ def create_form(render: str = BASE_RENDER, user: User | None = None):
         pets=[
             {"name": "Rex", "species": "dog"},
             {"name": "Felix", "species": "cat"},
-        ]
+        ],
     )
     return ModelForm(
         user,
@@ -33,6 +35,7 @@ def create_form(render: str = BASE_RENDER, user: User | None = None):
             "pets": {"render_type": render},
         },
     )
+
 
 component = dmc.SimpleGrid(
     [

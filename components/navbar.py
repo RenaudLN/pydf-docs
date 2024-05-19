@@ -10,12 +10,12 @@ category_data = {
     "API": {"icon": "material-symbols:trackpad-input-rounded"},
 }
 
-def create_content(data):
 
+def create_content(data):
     body = []
     entries = sorted(
         [datum for datum in data if datum["path"] not in excluded_links],
-        key=lambda d: d["order"] or 1000
+        key=lambda d: d["order"] or 1000,
     )
     for entry in entries:
         link = dmc.Anchor(
@@ -29,11 +29,29 @@ def create_content(data):
         offsetScrollbars=True,
         type="scroll",
         style={"height": "100%"},
-        children=dmc.Stack(gap=0, children=[
-            dmc.Anchor([DashIconify(icon="fluent:star-24-regular", height=24), "Introduction"], href="/", className="navbar-link",),
-            dmc.Divider(label="Components", mt="2rem", mb="1rem", labelPosition="left", pl="1rem"),
-            *body
-        ], px="1rem", py="2rem"),
+        children=dmc.Stack(
+            gap=0,
+            children=[
+                dmc.Anchor(
+                    [
+                        DashIconify(icon="fluent:star-24-regular", height=24),
+                        "Introduction",
+                    ],
+                    href="/",
+                    className="navbar-link",
+                ),
+                dmc.Divider(
+                    label="Components",
+                    mt="2rem",
+                    mb="1rem",
+                    labelPosition="left",
+                    pl="1rem",
+                ),
+                *body,
+            ],
+            px="1rem",
+            py="2rem",
+        ),
     )
 
 

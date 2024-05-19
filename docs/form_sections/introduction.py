@@ -1,5 +1,6 @@
 from typing import Literal
-from dash_pydantic_form import ModelForm, Sections, FormSection
+
+from dash_pydantic_form import FormSection, ModelForm, Sections
 from pydantic import BaseModel, Field
 
 Continent = Literal[
@@ -12,11 +13,13 @@ Continent = Literal[
     "South America",
 ]
 
+
 class User(BaseModel):
     email: str = Field(title="Email")
     username: str = Field(title="Username")
     favourite_game: str = Field(title="Favourite game")
     continent: Continent = Field(title="Continent")
+
 
 component = ModelForm(
     User,
@@ -39,5 +42,5 @@ component = ModelForm(
         ],
         remaining_fields_position="top",
         render="accordion",
-    )
+    ),
 )

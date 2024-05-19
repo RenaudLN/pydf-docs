@@ -1,13 +1,11 @@
 import dash_mantine_components as dmc
-from dash import Output, Input, clientside_callback
+from dash import Input, Output, clientside_callback
 from dash_iconify import DashIconify
 
 
 def create_link(icon, href):
     return dmc.Anchor(
-        dmc.ActionIcon(
-            DashIconify(icon=icon, width=25), variant="transparent", size="lg"
-        ),
+        dmc.ActionIcon(DashIconify(icon=icon, width=25), variant="transparent", size="lg"),
         href=href,
         target="_blank",
         visibleFrom="xs",
@@ -59,7 +57,10 @@ def create_header(data):
                                         hiddenFrom="lg",
                                     ),
                                     dmc.Anchor(
-                                        "Dash Pydantic Form", size="xl", href="/", underline=False
+                                        "Dash Pydantic Form",
+                                        size="xl",
+                                        href="/",
+                                        underline=False,
                                     ),
                                 ],
                                 gap="md",

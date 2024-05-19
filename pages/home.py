@@ -1,9 +1,8 @@
 from pathlib import Path
 
-import frontmatter
 import dash_mantine_components as dmc
-from dash import dcc, register_page
-from dash import html
+import frontmatter
+from dash import dcc, html, register_page
 
 from lib.constants import PAGE_TITLE_PREFIX
 
@@ -26,10 +25,6 @@ metadata, content = frontmatter.parse(md_file.read_text())
 
 layout = html.Div(
     [
-        dmc.Container(
-            size="lg",
-            mt=30,
-            children=dcc.Markdown(content)
-        ),
+        dmc.Container(size="lg", mt=30, children=dcc.Markdown(content)),
     ]
 )

@@ -1,0 +1,11 @@
+[tool.pixi.pypi-dependencies]
+pixi_py = { path = ".", editable = true }
+
+[tool.ruff]
+line-length = 120
+fix = true
+target-version = "py310"
+lint.select = ["I", "UP", "S", "C4", "SIM", "B", "PL", "ARG", "E", "F"]
+
+[tool.ruff.pydocstyle]
+convention = "numpy"

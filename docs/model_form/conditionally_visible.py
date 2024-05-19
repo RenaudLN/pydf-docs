@@ -3,10 +3,12 @@ from typing import Literal
 from dash_pydantic_form import ModelForm, fields
 from pydantic import BaseModel, Field
 
+
 class Metadata(BaseModel):
     param1: str
     param2: str
     param_english: str
+
 
 class User(BaseModel):
     username: str = Field(title="Username")
@@ -14,6 +16,7 @@ class User(BaseModel):
     likes_baguettes: bool = Field(title="Likes baguettes")
     metadata: Metadata = Field(title="Metadata")
     bonus: str
+
 
 component = ModelForm(
     User,
@@ -35,6 +38,6 @@ component = ModelForm(
         },
         "bonus": {
             "visible": [("country", "==", "uk"), ("username", "==", "Bob")],
-        }
+        },
     },
 )

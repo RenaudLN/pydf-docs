@@ -1,6 +1,5 @@
 import logging
 from pathlib import Path
-from typing import Optional
 
 import dash
 import dash_mantine_components as dmc
@@ -27,8 +26,8 @@ class Meta(BaseModel):
     description: str
     endpoint: str
     package: str = "dash_pydantic_form"
-    category: Optional[str] = None
-    icon: Optional[str] = None
+    category: str | None = None
+    icon: str | None = None
     order: int = 1000
 
 

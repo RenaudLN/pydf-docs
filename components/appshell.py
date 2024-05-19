@@ -1,5 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Output, Input, clientside_callback, dcc, page_container, State
+from dash import Input, Output, State, clientside_callback, dcc, page_container
 
 from components.header import create_header
 from components.navbar import create_navbar, create_navbar_drawer
@@ -24,7 +24,7 @@ def create_appshell(data):
                     }
                 },
             },
-            "colors":{
+            "colors": {
                 "dark": [
                     "#f4f4f5",
                     "#e4e4e7",
@@ -37,7 +37,7 @@ def create_appshell(data):
                     "#18181b",
                     "#09090b",
                 ],
-            }
+            },
         },
         children=[
             dcc.Store(id="theme-store", storage_type="local", data="light"),

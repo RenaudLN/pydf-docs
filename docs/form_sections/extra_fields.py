@@ -2,7 +2,7 @@ from typing import Literal
 
 import dash_mantine_components as dmc
 from dash import Input, Output, State, callback
-from dash_pydantic_form import ModelForm, Sections, FormSection
+from dash_pydantic_form import FormSection, ModelForm, Sections
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
@@ -18,11 +18,13 @@ Continent = Literal[
 
 BASE_POSITION = "top"
 
+
 class User(BaseModel):
     email: str = Field(title="Email")
     username: str = Field(title="Username")
     favourite_game: str = Field(title="Favourite game")
     continent: Continent = Field(title="Continent")
+
 
 def create_form(
     position: str = BASE_POSITION,
@@ -44,8 +46,9 @@ def create_form(
             ],
             remaining_fields_position=position,
             excluded_fields=excluded_fields,
-        )
+        ),
     )
+
 
 component = dmc.SimpleGrid(
     [
@@ -70,7 +73,7 @@ component = dmc.SimpleGrid(
                     id="extra-excluded",
                     data=list(User.model_fields),
                     value=[],
-                )
+                ),
             ],
         ),
     ],

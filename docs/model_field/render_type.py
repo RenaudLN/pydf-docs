@@ -4,17 +4,19 @@ from dash_pydantic_form import ModelForm
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
-
 BASE_RENDER = "accordion"
+
 
 class Stats(BaseModel):
     wins: int = Field(title="Wins")
     losses: int = Field(title="Losses")
     draws: int = Field(title="Draws")
 
+
 class User(BaseModel):
     username: str = Field(title="Username")
     stats: Stats = Field(title="Stats")
+
 
 def create_form(render: str = BASE_RENDER, item: User | None = None):
     return ModelForm(
@@ -25,6 +27,7 @@ def create_form(render: str = BASE_RENDER, item: User | None = None):
             "stats": {"render_type": render},
         },
     )
+
 
 component = dmc.SimpleGrid(
     [
