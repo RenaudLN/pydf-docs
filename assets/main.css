@@ -1,0 +1,17 @@
+:root {
+    scroll-padding: 5rem;
+    scroll-behavior: smooth;
+}
+.navbar-link {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background 0.1s;
+    color: inherit;
+    display: inline-flex;
+    gap: 0.5rem;
+
+    &:hover {
+        text-decoration: none;
+        background: color-mix(in srgb, var(--mantine-color-gray-5), transparent 90%);
+    }
+}
