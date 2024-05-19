@@ -6,6 +6,7 @@ WORKDIR $APP_HOME
 COPY . ./
 
 RUN curl -fsSL https://pixi.sh/install.sh | bash
+RUN . /root/.bashrc
 
 # Install package and its dependencies.
 RUN pixi install
