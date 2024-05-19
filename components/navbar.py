@@ -17,10 +17,9 @@ def create_content(data):
         [datum for datum in data if datum["path"] not in excluded_links],
         key=lambda d: d["order"] or 1000
     )
-    print([(e["path"], e["order"]) for e in entries])
     for entry in entries:
         link = dmc.Anchor(
-            [DashIconify(icon=entry["icon"], height=20), entry["name"]],
+            [DashIconify(icon=entry["icon"], height=24), entry["name"]],
             href=entry["path"],
             className="navbar-link",
         )
@@ -31,7 +30,7 @@ def create_content(data):
         type="scroll",
         style={"height": "100%"},
         children=dmc.Stack(gap=0, children=[
-            dmc.Anchor([DashIconify(icon="fluent:star-24-regular", height=20), "Introduction"], href="/", className="navbar-link",),
+            dmc.Anchor([DashIconify(icon="fluent:star-24-regular", height=24), "Introduction"], href="/", className="navbar-link",),
             dmc.Divider(label="Components", mt="2rem", mb="1rem", labelPosition="left", pl="1rem"),
             *body
         ], px="1rem", py="2rem"),

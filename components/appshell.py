@@ -23,9 +23,6 @@ def create_appshell(data):
                         "horizontalSpacing": "md",
                     }
                 },
-                "Modal": {
-                    "defaultProps": {"zIndex": 2000}
-                },
             },
             "colors":{
                 "dark": [
@@ -55,7 +52,7 @@ def create_appshell(data):
                 ],
                 header={"height": 70},
                 padding="xl",
-                zIndex=1400,
+                zIndex=20,
                 navbar={
                     "width": 300,
                     "breakpoint": "lg",
