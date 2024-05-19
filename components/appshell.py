@@ -23,6 +23,9 @@ def create_appshell(data):
                         "horizontalSpacing": "md",
                     }
                 },
+                "Modal": {
+                    "defaultProps": {"zIndex": 2000}
+                },
             },
             "colors":{
                 "dark": [
