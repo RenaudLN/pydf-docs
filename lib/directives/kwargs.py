@@ -38,7 +38,9 @@ class Kwargs(KwargsBase):
             package = attrs.pop("library", "dash_pydantic_form")
             component_name = attrs["title"]
             imported = importlib.import_module(package)
-            component = getattr(imported, component_name)
+            component = imported
+            for part in component_name.split("."):
+                component = getattr(component, part)
             docstring = inspect.getdoc(component).split("----------\n")[-1]
             attrs["kwargs"] = convert_docstring_to_dict(docstring)
 
@@ -55,10 +57,11 @@ class Kwargs(KwargsBase):
                                     dmc.Text(
                                         dmc.CodeHighlight(
                                             arg["type"],
-                                            styles={"pre": {"fontSize": "inherit", "padding": "0 0.5rem"}, "root": {"borderRadius": "0.25rem"}},
+                                            styles={"pre": {"fontSize": "inherit", "padding": "0 0.5rem"}},
                                             language="py",
                                             withCopyButton=False,
                                             py=0,
+                                            className="kwargs-type-hint",
                                         ),
                                         c="dimmed",
                                         size="sm",

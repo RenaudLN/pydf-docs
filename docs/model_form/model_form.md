@@ -4,6 +4,7 @@ description: Use the ModelForm to automatically create a form for a Pydantic mod
 endpoint: /api/model_form
 package: dash_pydantic_form
 icon: fluent:form-24-regular
+order: 1
 ---
 
 .. toc::

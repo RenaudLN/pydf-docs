@@ -5,13 +5,27 @@
 .navbar-link {
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
-    transition: background 0.1s;
+    transition: background-color 0.1s;
     color: inherit;
     display: inline-flex;
     gap: 0.5rem;
 
     &:hover {
         text-decoration: none;
-        background: color-mix(in srgb, var(--mantine-color-gray-5), transparent 90%);
+        background-color: color-mix(in srgb, var(--mantine-color-gray-5), transparent 90%);
+    }
+}
+.kwargs-type-hint {
+    border-radius: 0.5rem;
+    max-width: calc(100vw - 700px);
+}
+@media (max-width: 1407px) {
+    .kwargs-type-hint {
+        max-width: calc(100vw - 400px);
+    }
+}
+@media (max-width: 1199px) {
+    .kwargs-type-hint {
+        max-width: calc(100vw - 100px);
     }
 }

@@ -29,6 +29,7 @@ class Meta(BaseModel):
     package: str = "dash_pydantic_form"
     category: Optional[str] = None
     icon: Optional[str] = None
+    order: int = 1000
 
 
 def make_endpoint(name):
@@ -61,4 +62,5 @@ for file in files:
         layout=layout,
         category=metadata.category,
         icon=metadata.icon,
+        order=metadata.order,
     )

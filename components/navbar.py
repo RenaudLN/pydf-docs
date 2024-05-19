@@ -3,12 +3,7 @@ from dash_iconify import DashIconify
 
 excluded_links = [
     "/404",
-    "/getting-started",
-    "/styles-api",
-    "/style-props",
-    "/dash-iconify",
     "/",
-    "/migration",
 ]
 
 category_data = {
@@ -18,14 +13,18 @@ category_data = {
 def create_content(data):
 
     body = []
-    for entry in data:
-        if entry["path"] not in excluded_links:
-            link = dmc.Anchor(
-                [DashIconify(icon=entry["icon"], height=20), entry["name"]],
-                href=entry["path"],
-                className="navbar-link",
-            )
-            body.append(link)
+    entries = sorted(
+        [datum for datum in data if datum["path"] not in excluded_links],
+        key=lambda d: d["order"] or 1000
+    )
+    print([(e["path"], e["order"]) for e in entries])
+    for entry in entries:
+        link = dmc.Anchor(
+            [DashIconify(icon=entry["icon"], height=20), entry["name"]],
+            href=entry["path"],
+            className="navbar-link",
+        )
+        body.append(link)
 
     return dmc.ScrollArea(
         offsetScrollbars=True,

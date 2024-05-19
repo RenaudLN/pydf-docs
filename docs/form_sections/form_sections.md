@@ -4,6 +4,7 @@ description: Use Sections to add sections and steps to your form.
 endpoint: /api/sections
 package: dash_pydantic_form
 icon: fluent:align-space-evenly-vertical-24-regular
+order: 2
 ---
 
 .. toc::
