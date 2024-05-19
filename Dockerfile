@@ -1,14 +1,11 @@
-FROM python:3.12
+FROM ghcr.io/prefix-dev/pixi:latest
 
 # Copy local code to the container image.
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
-RUN curl -fsSL https://pixi.sh/install.sh | bash
-RUN . /root/.bashrc
-
 # Install package and its dependencies.
 RUN pixi install
 
-CMD gunicorn --timeout 0 run:server
+CMD pixi run gunicorn --timeout 0 run:server
