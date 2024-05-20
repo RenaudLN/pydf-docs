@@ -22,7 +22,6 @@ class User(BaseModel):
 def create_form(
     with_upload: bool = True,
     rows_editable: bool = True,
-    rows_deletable: bool = True,
     table_height: int = 300,
     user: User | None = None,
 ):
@@ -41,7 +40,6 @@ def create_form(
             "pets": fields.EditableTable(
                 with_upload=with_upload,
                 rows_editable=rows_editable,
-                rows_deletable=rows_deletable,
                 table_height=table_height,
             ),
         },
@@ -51,7 +49,6 @@ def create_form(
 class Options(BaseModel):
     with_upload: bool = Field(title="With upload", default=True)
     rows_editable: bool = Field(title="Rows editable", default=True)
-    rows_deletable: bool = Field(title="Rows deletable", default=True)
     table_height: int = Field(title="Table height", default=300)
 
 
