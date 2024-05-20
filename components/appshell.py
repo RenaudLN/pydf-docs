@@ -54,12 +54,12 @@ def create_appshell(data):
                 padding="xl",
                 zIndex=20,
                 navbar={
-                    "width": 300,
+                    "width": 250,
                     "breakpoint": "lg",
                     "collapsed": {"mobile": True},
                 },
                 aside={
-                    "width": 300,
+                    "width": 250,
                     "breakpoint": "xl",
                     "collapsed": {"desktop": False, "mobile": True},
                 },

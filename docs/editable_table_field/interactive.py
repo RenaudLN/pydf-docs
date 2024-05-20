@@ -67,10 +67,7 @@ component = dmc.SimpleGrid(
             aio_id="editable-table",
             form_id="interactive-options",
             fields_repr={
-                "with_upload": {"n_cols": 4},
-                "rows_editable": {"n_cols": 4},
-                "rows_deletable": {"n_cols": 4},
-                "table_height": fields.Slider(input_kwargs={"min": 150, "max": 400, "step": 50}, n_cols=4),
+                "table_height": fields.Slider(input_kwargs={"min": 150, "max": 400, "step": 50}),
             },
         ),
     ],

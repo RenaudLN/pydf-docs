@@ -13,6 +13,9 @@ class Pet(BaseModel):
     name: str = Field(title="Name")
     species: Literal["cat", "dog"] = Field(title="Species")
 
+    def __str__(self):
+        return str(self.name)
+
 
 class User(BaseModel):
     username: str = Field(title="Username")

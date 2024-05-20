@@ -26,11 +26,7 @@ class User(BaseModel):
     continent: Continent = Field(title="Continent")
 
 
-def create_form(
-    position: str = BASE_POSITION,
-    excluded_fields: list[str] | None = None,
-    item: User | None = None,
-):
+def create_form(position: str = BASE_POSITION, item: User | None = None):
     return ModelForm(
         item if item is not None else User,
         "new_user",
@@ -45,7 +41,6 @@ def create_form(
                 ),
             ],
             remaining_fields_position=position,
-            excluded_fields=excluded_fields,
         ),
     )
 
@@ -68,12 +63,6 @@ component = dmc.SimpleGrid(
                         gap="0.5rem",
                     ),
                 ),
-                dmc.MultiSelect(
-                    label="Excluded fields",
-                    id="extra-excluded",
-                    data=list(User.model_fields),
-                    value=[],
-                ),
             ],
         ),
     ],
@@ -85,10 +74,9 @@ component = dmc.SimpleGrid(
 @callback(
     Output("extra-wrapper", "children"),
     Input("extra-position", "value"),
-    Input("extra-excluded", "value"),
-    State(ModelForm.ids.main("new_user", "sections"), "data"),
+    State(ModelForm.ids.main("new_user", "extra_fields"), "data"),
     prevent_initial_call=True,
 )
-def update_form(position: str, excluded: list[str], form_data: dict):
+def update_form(position: str, form_data: dict):
     item = model_construct_recursive(form_data, User)
-    return create_form(position, excluded, item)
+    return create_form(position, item)

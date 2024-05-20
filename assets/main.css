@@ -18,11 +18,11 @@
 }
 .kwargs-type-hint {
     border-radius: 0.5rem;
-    max-width: calc(100vw - 700px);
+    max-width: calc(100vw - 600px);
 }
 @media (max-width: 1407px) {
     .kwargs-type-hint {
-        max-width: calc(100vw - 400px);
+        max-width: calc(100vw - 350px);
     }
 }
 @media (max-width: 1199px) {

@@ -28,7 +28,7 @@ class User(BaseModel):
 
 def create_form(render: str = BASE_RENDER, item: User | None = None):
     return ModelForm(
-        item if item is not None else User,
+        item or User,
         "new_user",
         "renders",
         sections=Sections(
@@ -81,7 +81,7 @@ component = dmc.SimpleGrid(
 @callback(
     Output("intro-wrapper", "children"),
     Input("intro-render", "value"),
-    State(ModelForm.ids.main("new_user", "sections"), "data"),
+    State(ModelForm.ids.main("new_user", "renders"), "data"),
     prevent_initial_call=True,
 )
 def update_form(render: str, form_data: dict):
