@@ -52,6 +52,14 @@ The available operators fo conditional visibility are `==`, `!=`, `in`, `not in`
 
 .. exec::docs.model_form.conditionally_visible
 
+### Read-only form display
+
+In some cases you may want to display the contents of a form in a read-only way.
+ModelForm allows you to keep the structure of the form and render the contents of each field for viewing.
+The displayed result will respect sections and conditionally visible fields.
+
+.. exec::docs.model_form.read_only
+
 ### API
 
 #### ModelForm

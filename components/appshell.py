@@ -80,22 +80,6 @@ clientside_callback(
 
 clientside_callback(
     """
-    function(data) {
-        const box = document.getElementById("ethical-ads-box");
-        if (data === "dark") {
-            box.classList.add("dark");
-        } else {
-            box.classList.remove("dark");
-        }
-        return dash_clientside.no_update
-    }
-    """,
-    Output("ethical-ads-box", "className"),
-    Input("theme-store", "data"),
-)
-
-clientside_callback(
-    """
     function(n_clicks, data) {
         return data === "dark" ? "light" : "dark";
     }
