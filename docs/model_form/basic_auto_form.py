@@ -26,6 +26,7 @@ component = dmc.Stack(
 
 @callback(
     Output("output", "children"),
+    Output(ModelForm.ids.errors("login", "auto"), "data"),
     Input("submit", "n_clicks"),
     Input(ModelForm.ids.form("login", "auto"), "data-submit"),
     State(ModelForm.ids.main("login", "auto"), "data"),
@@ -35,21 +36,7 @@ def check_form(_trigger: int, _trigger2: int, form_data: dict):
     try:
         LoginData.model_validate(form_data)
     except ValidationError as exc:
-        return [
-            dmc.Text("Validation errors", fw=500, c="red"),
-            dmc.List(
-                [
-                    dmc.ListItem(
-                        [
-                            ".".join([str(x) for x in error["loc"]]),
-                            f" : {error['msg']}, got {error['input']}",
-                        ],
-                    )
-                    for error in exc.errors()
-                ],
-                size="sm",
-                c="red",
-            ),
-        ]
+        errors = {":".join([str(x) for x in error["loc"]]): error["msg"] for error in exc.errors()}
+        return dmc.Text("Try again", fw=500, c="red"), errors
 
-    return dmc.Text("Form is valid", c="green")
+    return dmc.Text("Form is valid", c="green"), {}
