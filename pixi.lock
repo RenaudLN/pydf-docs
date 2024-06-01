@@ -76,7 +76,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.17.0-pyhd8ed1ab_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/7c/ea/fd7742b22ae1cf941c405e0d6a4aca03c584b9368e3e4ba0570c2b98e7ac/dash_pydantic_form-0.1.16-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d9/a4/60f96925d7a7f95bfa0055121b0745a202718f769959893ab6c4bf87a360/dash_pydantic_form-0.1.17-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/3e/0d/424de6e5612f1399ff69bf86500d6a62ff0a4843979701ae97f120c7f1fe/flatdict-4.0.1.tar.gz
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/a1/693351acd0a9edca4de9153372a65e75398898ea7f8a5c722ab00f464929/jsonpath-0.82.2.tar.gz
@@ -378,9 +378,9 @@ packages:
   timestamp: 1714597789063
 - kind: pypi
   name: dash-pydantic-form
-  version: 0.1.16
-  url: https://files.pythonhosted.org/packages/7c/ea/fd7742b22ae1cf941c405e0d6a4aca03c584b9368e3e4ba0570c2b98e7ac/dash_pydantic_form-0.1.16-py3-none-any.whl
-  sha256: aba24bb7fed5231181709cf4eef7c9df4e2783235baa694dd38c226c95746ae0
+  version: 0.1.17
+  url: https://files.pythonhosted.org/packages/d9/a4/60f96925d7a7f95bfa0055121b0745a202718f769959893ab6c4bf87a360/dash_pydantic_form-0.1.17-py3-none-any.whl
+  sha256: 58a77880d22d4f2070b0edb6b8d12a40181b2aaaaa064dc486b66ee0f2db2d17
   requires_dist:
   - dash
   - dash-mantine-components>=0.14
