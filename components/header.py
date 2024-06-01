@@ -1,5 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Input, Output, clientside_callback
+from dash import Input, Output, clientside_callback, html
 from dash_iconify import DashIconify
 
 
@@ -57,10 +57,11 @@ def create_header(data):
                                         hiddenFrom="lg",
                                     ),
                                     dmc.Anchor(
-                                        "Dash Pydantic Form",
+                                        [html.Img(src="assets/logo.svg", width=32, height=32), "Dash Pydantic Form"],
                                         size="xl",
                                         href="/",
                                         underline=False,
+                                        style={"display": "flex", "alignItems": "center", "gap": "0.75rem"},
                                     ),
                                 ],
                                 gap="md",
