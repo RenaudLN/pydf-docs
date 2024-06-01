@@ -57,7 +57,7 @@ def create_header(data):
                                         hiddenFrom="lg",
                                     ),
                                     dmc.Anchor(
-                                        [html.Img(src="assets/logo.svg", width=32, height=32), "Dash Pydantic Form"],
+                                        [html.Img(src="/assets/logo.svg", width=32, height=32), "Dash Pydantic Form"],
                                         size="xl",
                                         href="/",
                                         underline=False,
