@@ -25,6 +25,7 @@ By default `fileds.ModelList` renders each list item in an accordion item. 2 oth
     'name' field if it exists.
 
 .. exec::docs.model_list_field.render_type
+    :code: false
 
 ### List of str/number/datetimes
 

@@ -18,6 +18,7 @@ order: 6
 ### Interactive
 
 .. exec::docs.editable_table_field.interactive
+    :code: false
 
 
 ### API

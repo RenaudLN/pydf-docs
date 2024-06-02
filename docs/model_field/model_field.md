@@ -23,6 +23,7 @@ It accepts similar arguments to `ModelForm`, on top of the regular fields inputs
 `fields.Model` can either be rendered as an accordion item or as an openable Modal.
 
 .. exec::docs.model_field.render_type
+    :code: false
 
 ### API
 
