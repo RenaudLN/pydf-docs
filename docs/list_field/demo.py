@@ -3,8 +3,6 @@ from typing import Literal
 from dash_pydantic_form import ModelForm
 from pydantic import BaseModel, Field
 
-BASE_RENDER = "accordion"
-
 
 class Pet(BaseModel):
     name: str = Field(title="Name")

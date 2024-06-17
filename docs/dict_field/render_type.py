@@ -18,22 +18,20 @@ class Pet(BaseModel):
 
 
 class User(BaseModel):
-    username: str = Field(title="Username")
-    pets: list[Pet] = Field(title="Pets", default_factory=list)
+    pets: dict[str, Pet] = Field(title="Pets", default_factory=dict)
 
 
 def create_form(render: str = BASE_RENDER, user: User | None = None):
     user = user or User(
-        username="Bob",
-        pets=[
-            {"name": "Rex", "species": "dog"},
-            {"name": "Felix", "species": "cat"},
-        ],
+        pets={
+            "rex": {"name": "Rex", "species": "dog"},
+            "felix": {"name": "Felix", "species": "cat"},
+        },
     )
     return ModelForm(
         user,
         "user",
-        "renders",
+        "dict-renders",
         fields_repr={
             "pets": {"render_type": render},
         },
@@ -44,17 +42,17 @@ component = dmc.SimpleGrid(
     [
         dmc.Paper(
             create_form(BASE_RENDER),
-            id="interactive2-wrapper",
+            id="dict-renders-wrapper",
             style={"gridColumn": "1 / 4"},
         ),
         dmc.Stack(
             [
                 dmc.RadioGroup(
                     label="Sections render",
-                    id="interactive2-render",
+                    id="dict-renders-render",
                     value=BASE_RENDER,
                     children=dmc.Stack(
-                        [dmc.Radio(label=x, value=x) for x in ["accordion", "modal", "list"]],
+                        [dmc.Radio(label=x, value=x) for x in ["accordion", "modal"]],
                         gap="0.5rem",
                     ),
                 ),
@@ -67,9 +65,9 @@ component = dmc.SimpleGrid(
 
 
 @callback(
-    Output("interactive2-wrapper", "children"),
-    Input("interactive2-render", "value"),
-    State(ModelForm.ids.main("user", "renders"), "data"),
+    Output("dict-renders-wrapper", "children"),
+    Input("dict-renders-render", "value"),
+    State(ModelForm.ids.main("user", "dict-renders"), "data"),
     prevent_initial_call=True,
 )
 def update_form(render: str, form_data: dict):
