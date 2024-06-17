@@ -4,7 +4,7 @@ description: fields.EditableTable is the base field representation for list of n
 endpoint: /api/editable_table_field
 package: dash_pydantic_form
 icon: fluent:table-freeze-row-24-regular
-order: 6
+order: 7
 ---
 
 .. toc::

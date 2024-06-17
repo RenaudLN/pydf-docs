@@ -4,7 +4,7 @@ description: fields.Markdown allows to use a textarea with markdown support and 
 endpoint: /api/markdown_field
 package: dash_pydantic_form
 icon: fluent:markdown-20-filled
-order: 7
+order: 8
 ---
 
 .. toc::

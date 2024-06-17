@@ -4,7 +4,7 @@ description: fields.Dict is the base field representation for dict of scalar and
 endpoint: /api/dict_field
 package: dash_pydantic_form
 icon: lucide:curly-braces
-order: 5
+order: 6
 ---
 
 .. toc::
