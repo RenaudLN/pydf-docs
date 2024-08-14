@@ -76,7 +76,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.17.0-pyhd8ed1ab_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/ab/65/cdbb3ea9167a1fbda1efc3032d851cd2ea287d46308f235b1d70a89977ac/dash_pydantic_form-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/14/70/093440b982952c23293985038b393077c879d0fe585f44324ffec2d77230/dash_pydantic_form-0.3.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/a1/693351acd0a9edca4de9153372a65e75398898ea7f8a5c722ab00f464929/jsonpath-0.82.2.tar.gz
       - pypi: https://files.pythonhosted.org/packages/8e/a6/f5b8181493c17183bbf4094edf221fc7ed6b2348243b17eae272be8faad9/markdown2dash-0.1.1-py3-none-any.whl
@@ -382,18 +382,19 @@ packages:
   timestamp: 1714597789063
 - kind: pypi
   name: dash-pydantic-form
-  version: 0.2.1
-  url: https://files.pythonhosted.org/packages/ab/65/cdbb3ea9167a1fbda1efc3032d851cd2ea287d46308f235b1d70a89977ac/dash_pydantic_form-0.2.1-py3-none-any.whl
-  sha256: 51dbdcd06aaa46f500514e114c021b18718dd7f96095059832323b611b493845
+  version: 0.3.6
+  url: https://files.pythonhosted.org/packages/14/70/093440b982952c23293985038b393077c879d0fe585f44324ffec2d77230/dash_pydantic_form-0.3.6-py3-none-any.whl
+  sha256: a920cbff2056e2ec15c4f601edd2e60c001434b8ac8caf656df656a2275a9152
   requires_dist:
-  - dash
+  - dash>=2.16
   - dash-mantine-components>=0.14
   - dash-iconify
-  - dash-ag-grid
+  - dash-ag-grid>=31
   - pandas
   - pydantic==2.*
   - pre-commit ; extra == 'dev'
   - pytest ; extra == 'dev'
+  - dash[testing] ; extra == 'dev'
   requires_python: <3.13,>=3.10
 - kind: conda
   name: distlib
