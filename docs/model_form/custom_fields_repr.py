@@ -19,7 +19,7 @@ component = ModelForm(
     "custom",
     fields_repr={
         # Using a dict will pass the arguments to the default field input
-        "email": {"input_kwargs": {"placeholder": "abc@email.com"}},
+        "email": {"placeholder": "abc@email.com"},
         # You can also pass the field repr directly
         "password": fields.Password(),
     },
