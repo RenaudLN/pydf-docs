@@ -6,8 +6,6 @@ from dash_pydantic_form import ModelForm, fields
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
-BASE_RENDER = "accordion"
-
 
 class Pet(BaseModel):
     name: str = Field(title="Name")
@@ -20,10 +18,8 @@ class User(BaseModel):
 
 
 def create_form(
-    with_upload: bool = True,
-    rows_editable: bool = True,
-    table_height: int = 300,
     user: User | None = None,
+    **options,
 ):
     user = user or User(
         username="Bob",
@@ -36,13 +32,7 @@ def create_form(
         user,
         "user",
         "interactive-table",
-        fields_repr={
-            "pets": fields.EditableTable(
-                with_upload=with_upload,
-                rows_editable=rows_editable,
-                table_height=table_height,
-            ),
-        },
+        fields_repr={"pets": fields.Table(**options)},
     )
 
 
@@ -81,4 +71,4 @@ component = dmc.SimpleGrid(
 )
 def update_form(options_data: dict, form_data: dict):
     item = model_construct_recursive(form_data, User)
-    return create_form(**options_data, user=item)
+    return create_form(user=item, **options_data)

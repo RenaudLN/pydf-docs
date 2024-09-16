@@ -21,7 +21,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/click-8.1.7-unix_pyh707e725_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/dash-2.17.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/dash-iconify-0.1.2-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/dash-mantine-components-0.14.3-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/dash-mantine-components-0.14.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/distlib-0.3.8-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/filelock-3.14.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/flask-3.0.3-pyhd8ed1ab_0.conda
@@ -76,7 +76,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.17.0-pyhd8ed1ab_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6e/d8/fda31f2be694f90782e5fdb04bf2c0d5f85f0d422537914c7253c808f6cd/dash_pydantic_form-0.4.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/e4/17/5dbe11a0572ba3b5b24af162348f4f82ac0104544c5ee1fd1102b810b657/dash_pydantic_form-0.5.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/a1/693351acd0a9edca4de9153372a65e75398898ea7f8a5c722ab00f464929/jsonpath-0.82.2.tar.gz
       - pypi: https://files.pythonhosted.org/packages/8e/a6/f5b8181493c17183bbf4094edf221fc7ed6b2348243b17eae272be8faad9/markdown2dash-0.1.1-py3-none-any.whl
@@ -364,30 +364,30 @@ packages:
   timestamp: 1713719304754
 - kind: conda
   name: dash-mantine-components
-  version: 0.14.3
+  version: 0.14.4
   build: pyhd8ed1ab_0
   subdir: noarch
   noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/dash-mantine-components-0.14.3-pyhd8ed1ab_0.conda
-  sha256: 5bbb59ce2f5498947cbf115ed1b4ef90228d17c184976517f32dfd90213ded00
-  md5: 53c380a45651643c66a6c3fbe47cd11e
+  url: https://conda.anaconda.org/conda-forge/noarch/dash-mantine-components-0.14.4-pyhd8ed1ab_0.conda
+  sha256: 7fa8fd56c6b8501cb6b03a60e19198a065eb6ef81578fb7d846bd2fc01429b98
+  md5: eda52b1669fd77c2b85390e55cbbb17f
   depends:
   - dash >=2.5.1
   - python >=3.7
   license: MIT
   license_family: MIT
   purls:
-  - pkg:pypi/dash-mantine-components
-  size: 739163
-  timestamp: 1714597789063
+  - pkg:pypi/dash-mantine-components?source=hash-mapping
+  size: 747488
+  timestamp: 1723106585901
 - kind: pypi
   name: dash-pydantic-form
-  version: 0.4.0
-  url: https://files.pythonhosted.org/packages/6e/d8/fda31f2be694f90782e5fdb04bf2c0d5f85f0d422537914c7253c808f6cd/dash_pydantic_form-0.4.0-py3-none-any.whl
-  sha256: db2151e1d132db9a94e09ac69c8b333ceb21e2464e33fca65d57e229e3739861
+  version: 0.5.1
+  url: https://files.pythonhosted.org/packages/e4/17/5dbe11a0572ba3b5b24af162348f4f82ac0104544c5ee1fd1102b810b657/dash_pydantic_form-0.5.1-py3-none-any.whl
+  sha256: 79089c3f0c998f325901842b65d7e585e523fcf7343227b657f40534c6102279
   requires_dist:
   - dash>=2.16
-  - dash-mantine-components>=0.14
+  - dash-mantine-components>=0.14.4
   - dash-iconify
   - dash-ag-grid>=31
   - pandas
