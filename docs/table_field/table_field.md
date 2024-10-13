@@ -20,6 +20,16 @@ order: 7
 .. exec::docs.table_field.interactive
     :code: false
 
+### Dynamic options
+
+You can define dynamic options on select-like sub-fields of Table fields to dynamically update the options based on the current row content. To do so, you need to define a javascript function on a sub-namespace of `dash_clientside`, similar to how you would use Dash's `ClientsideFunction`. The function will get 3 arguments:
+* All the dropdown options
+* The current row data
+* The cell editor params
+
+.. exec::docs.table_field.dynamic_options
+
+.. source::docs/table_field/dynamic_options.js
 
 ### API
 

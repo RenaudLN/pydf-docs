@@ -13,17 +13,18 @@ class SC(SourceCode):
         mapping = {
             "py": {"language": "python", "icon": DashIconify(icon="devicon:python")},
             "css": {"language": "css", "icon": DashIconify(icon="devicon:css3")},
+            "js": {"language": "js", "icon": DashIconify(icon="devicon:javascript")},
         }
         files = title.split(", ")
         code = []
         for file in files:
             with open(file) as f:
-                code = f.read()
+                code_text = f.read()
             extension = file.split(".")[-1]
             code.append(
                 {
                     "fileName": os.path.basename(file),
-                    "code": code,
+                    "code": code_text,
                     "language": mapping[extension]["language"],
                     "icon": mapping[extension]["icon"],
                 }
