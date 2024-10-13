@@ -6,8 +6,6 @@ from dash_pydantic_form import ModelForm
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
-BASE_RENDER = "accordion"
-
 
 class Pet(BaseModel):
     name: str = Field(title="Name")
@@ -21,7 +19,7 @@ class User(BaseModel):
     pets: dict[str, Pet] = Field(title="Pets", default_factory=dict)
 
 
-def create_form(render: str = BASE_RENDER, user: User | None = None):
+def create_form(user: User | None = None, **options):
     user = user or User(
         pets={
             "rex": {"name": "Rex", "species": "dog"},
@@ -32,44 +30,44 @@ def create_form(render: str = BASE_RENDER, user: User | None = None):
         user,
         "user",
         "dict-renders",
-        fields_repr={
-            "pets": {"render_type": render},
-        },
+        fields_repr={"pets": options},
     )
+
+class Options(BaseModel):
+    render_type: Literal["accordion", "modal"] = Field(
+        title="List render", default="accordion", json_schema_extra={"repr_type": "RadioItems"}
+    )
+    items_creatable: bool = Field(title="Items creatable", default=True)
+    items_deletable: bool = Field(title="Items deletable", default=True)
+    read_only: bool = Field(title="Read only", default=False)
+    required: bool = Field(title="Required", default=False)
 
 
 component = dmc.SimpleGrid(
     [
         dmc.Paper(
-            create_form(BASE_RENDER),
+            create_form(None, **Options().model_dump()),
             id="dict-renders-wrapper",
             style={"gridColumn": "1 / 4"},
         ),
-        dmc.Stack(
-            [
-                dmc.RadioGroup(
-                    label="Sections render",
-                    id="dict-renders-render",
-                    value=BASE_RENDER,
-                    children=dmc.Stack(
-                        [dmc.Radio(label=x, value=x) for x in ["accordion", "modal"]],
-                        gap="0.5rem",
-                    ),
-                ),
-            ],
+        ModelForm(
+            Options,
+            aio_id="dict",
+            form_id="interactive-options",
+            debounce_inputs=250,
         ),
     ],
-    cols=4,
+    cols={"base": 1, "sm": 4},
     spacing="2rem",
 )
 
 
 @callback(
     Output("dict-renders-wrapper", "children"),
-    Input("dict-renders-render", "value"),
+    Input(ModelForm.ids.main("dict", "interactive-options"), "data"),
     State(ModelForm.ids.main("user", "dict-renders"), "data"),
     prevent_initial_call=True,
 )
-def update_form(render: str, form_data: dict):
+def update_form(options: dict, form_data: dict):
     item = model_construct_recursive(form_data, User)
-    return create_form(render, item)
+    return create_form(item, **options)

@@ -46,13 +46,6 @@ The DMC fields ported to dash-pydantic-form are the following:
 * `fields.Text` (`dmc.TextInput`)
 * `fields.Time` (`dmc.TimeInput`)
 
-
-.. admonition::Warning
-    :icon: fluent:info-16-regular
-    :color: orange
-    `dmc.DateTimePicker` has issues as of 0.14.3, you will need to wrap your form/app with a `dmc.DatesProvider`
-    setting the timezone to UTC for it to work properly.
-
 ### API
 
 #### Simple inputs

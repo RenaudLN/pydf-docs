@@ -66,7 +66,7 @@ component = dmc.SimpleGrid(
             ],
         ),
     ],
-    cols=4,
+    cols={"base": 1, "sm": 4},
     spacing="2rem",
 )
 

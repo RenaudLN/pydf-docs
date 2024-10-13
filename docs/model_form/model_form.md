@@ -29,6 +29,9 @@ You can customise each input field, e.g.:
 
 .. exec::docs.model_form.custom_fields_repr
 
+.. admonition::
+    New in 0.4.0
+
 Another way to customise input field is to specify it directly in the pydantic model.
 This can be convenient to define the data and representation at the same spot,
 but it is often a good practice to separate data and presentation layers.

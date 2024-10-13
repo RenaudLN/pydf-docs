@@ -22,4 +22,4 @@ bob = User(
     ],
 )
 
-component = ModelForm(bob, "user", "table1", fields_repr={"pets": fields.EditableTable()})
+component = ModelForm(bob, "user", "table1", fields_repr={"pets": fields.Table()})

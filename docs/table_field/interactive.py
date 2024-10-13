@@ -20,10 +20,8 @@ class User(BaseModel):
 
 
 def create_form(
-    with_upload: bool = True,
-    rows_editable: bool = True,
-    table_height: int = 300,
     user: User | None = None,
+    **options,
 ):
     user = user or User(
         username="Bob",
@@ -36,26 +34,24 @@ def create_form(
         user,
         "user",
         "interactive-table",
-        fields_repr={
-            "pets": fields.EditableTable(
-                with_upload=with_upload,
-                rows_editable=rows_editable,
-                table_height=table_height,
-            ),
-        },
+        fields_repr={"pets": fields.Table(**options)},
     )
 
 
 class Options(BaseModel):
+    title: str | None = Field(title="Title", default=None)
+    description: str | None = Field(title="Description", default=None)
     with_upload: bool = Field(title="With upload", default=True)
     rows_editable: bool = Field(title="Rows editable", default=True)
+    read_only: bool = Field(title="Read only", default=False)
+    required: bool = Field(title="Required", default=False)
     table_height: int = Field(title="Table height", default=300)
 
 
 component = dmc.SimpleGrid(
     [
         dmc.Paper(
-            create_form(),
+            create_form(**Options().model_dump()),
             id="interactive3-wrapper",
             style={"gridColumn": "1 / 4"},
         ),
@@ -66,9 +62,10 @@ component = dmc.SimpleGrid(
             fields_repr={
                 "table_height": fields.Slider(input_kwargs={"min": 150, "max": 400, "step": 50}),
             },
+            debounce_inputs=250,
         ),
     ],
-    cols=4,
+    cols={"base": 1, "sm": 4},
     spacing="2rem",
 )
 
@@ -79,6 +76,6 @@ component = dmc.SimpleGrid(
     State(ModelForm.ids.main("user", "interactive-table"), "data"),
     prevent_initial_call=True,
 )
-def update_form(options_data: dict, form_data: dict):
+def update_form(options: dict, form_data: dict):
     item = model_construct_recursive(form_data, User)
-    return create_form(**options_data, user=item)
+    return create_form(user=item, **options)

@@ -7,15 +7,15 @@ from pydantic import BaseModel, Field
 class Metadata(BaseModel):
     param1: str
     param2: str
-    param_english: str
+    param_english: str | None = None
 
 
 class User(BaseModel):
     username: str = Field(title="Username")
     country: Literal["us", "fr", "uk"] = Field(title="Country")
-    likes_baguettes: bool = Field(title="Likes baguettes")
-    metadata: Metadata = Field(title="Metadata")
-    bonus: str
+    likes_baguettes: bool = Field(title="Likes baguettes", default=False)
+    metadata: Metadata | None = None
+    bonus: str | None = None
 
 
 component = ModelForm(

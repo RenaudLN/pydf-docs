@@ -14,8 +14,8 @@ class User(BaseModel):
     username: str = Field(title="Username")
     country: Literal["us", "fr", "uk"] = Field(title="Country")
     likes_baguettes: bool = Field(title="Likes baguettes", default=False)
-    metadata: Metadata = Field(title="Metadata")
-    bonus: str
+    metadata: Metadata | None = None
+    bonus: str | None = None
 
 
 bob = User(

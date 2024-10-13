@@ -28,8 +28,7 @@ By default `fileds.List` renders each list item in an accordion item. 2 other re
 
 .. admonition::Note
     :icon: fluent:info-16-regular
-    For 'accordion' and 'modal' renders, the label of the item will synchronise with the item's
-    'name' field if it exists.
+    For 'accordion' and 'modal' renders, the element title of synchronises with the item's 'name' field if it exists.
 
 .. exec::docs.dict_field.render_type
     :code: false
