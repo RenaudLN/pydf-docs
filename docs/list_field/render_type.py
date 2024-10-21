@@ -35,6 +35,7 @@ def create_form(user: User | None = None, **options):
         fields_repr={"pets": options},
     )
 
+
 class Options(BaseModel):
     render_type: Literal["accordion", "modal", "list"] = Field(
         title="List render", default="accordion", json_schema_extra={"repr_type": "RadioItems"}
