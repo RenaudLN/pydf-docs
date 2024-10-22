@@ -76,7 +76,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h7f98852_2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.17.0-pyhd8ed1ab_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/47/21/ade34cf175302fede95a0a6d0b82fee7d00b9be92d1a294dc96fb3ecd03e/dash_pydantic_form-0.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cb/de/fa393aa71a1812f5403d27a11825a6f15bbe4046ab5eab7199e40bdb0815/dash_pydantic_form-0.7.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/a1/693351acd0a9edca4de9153372a65e75398898ea7f8a5c722ab00f464929/jsonpath-0.82.2.tar.gz
       - pypi: https://files.pythonhosted.org/packages/8e/a6/f5b8181493c17183bbf4094edf221fc7ed6b2348243b17eae272be8faad9/markdown2dash-0.1.1-py3-none-any.whl
@@ -382,9 +382,9 @@ packages:
   timestamp: 1728326549617
 - kind: pypi
   name: dash-pydantic-form
-  version: 0.7.0
-  url: https://files.pythonhosted.org/packages/47/21/ade34cf175302fede95a0a6d0b82fee7d00b9be92d1a294dc96fb3ecd03e/dash_pydantic_form-0.7.0-py3-none-any.whl
-  sha256: f95df95fd936c4108dcd63837c9dc1594c3bc03a88947d3d686c0d662c41baac
+  version: 0.7.1
+  url: https://files.pythonhosted.org/packages/cb/de/fa393aa71a1812f5403d27a11825a6f15bbe4046ab5eab7199e40bdb0815/dash_pydantic_form-0.7.1-py3-none-any.whl
+  sha256: e36ef21fc24ab0c9d88041502e543dfd7d50d03c6230c87314c509fad29e5aa1
   requires_dist:
   - dash>=2.16
   - dash-mantine-components>=0.14.5
