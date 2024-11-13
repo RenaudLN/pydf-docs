@@ -9,6 +9,9 @@ order: 9
 
 .. toc::
 
+.. admonition::
+    New in 0.7.0
+
 ### Basic quantity field
 
 Use this field when you need to record a value and a unit together.
