@@ -24,7 +24,7 @@ To install Dash-Pydantic-Form, use pip:
 ## Features
 
 * Handling of nested models and list of nested models
-* Form sections
+* Form layouts and sections
 * Conditional visibility
 * Retrieval of the whole form data from a single entrypoint
 * Submit on Enter

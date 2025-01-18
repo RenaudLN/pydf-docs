@@ -2,7 +2,7 @@ from typing import Literal
 
 import dash_mantine_components as dmc
 from dash import Input, Output, State, callback
-from dash_pydantic_form import FormSection, ModelForm, Sections
+from dash_pydantic_form import AccordionFormLayout, FormSection, ModelForm
 from dash_pydantic_form.utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
@@ -31,7 +31,7 @@ def create_form(position: str = BASE_POSITION, item: User | None = None):
         item if item is not None else User,
         "new_user",
         "extra_fields",
-        sections=Sections(
+        form_layout=AccordionFormLayout(
             sections=[
                 FormSection(
                     name="Detail",

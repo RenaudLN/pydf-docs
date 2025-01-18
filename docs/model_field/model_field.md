@@ -14,7 +14,7 @@ order: 4
 `fields.Model` allows to render nested models in a 'sub-form'.
 It accepts similar arguments to `ModelForm`, on top of the regular fields inputs:
 * `fields_repr`
-* `sections`
+* `form_layout`
 
 .. exec::docs.model_field.demo
 
