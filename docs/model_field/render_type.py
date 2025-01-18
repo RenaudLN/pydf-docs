@@ -39,7 +39,7 @@ component = dmc.SimpleGrid(
         dmc.Stack(
             [
                 dmc.RadioGroup(
-                    label="Sections render",
+                    label="Model render",
                     id="interactive-render",
                     value=BASE_RENDER,
                     children=dmc.Stack(

@@ -12,7 +12,8 @@ category_data = {
 
 
 def create_content(data):
-    body = []
+    base = []
+    fields = []
     entries = sorted(
         [datum for datum in data if datum["path"] not in excluded_links],
         key=lambda d: d["order"] or 1000,
@@ -23,7 +24,10 @@ def create_content(data):
             href=entry["path"],
             className="navbar-link",
         )
-        body.append(link)
+        if "fields" in entry["name"]:
+            fields.append(link)
+        else:
+            base.append(link)
 
     return dmc.ScrollArea(
         offsetScrollbars=True,
@@ -41,13 +45,21 @@ def create_content(data):
                     className="navbar-link",
                 ),
                 dmc.Divider(
-                    label="Components",
+                    label="Form",
                     mt="2rem",
                     mb="1rem",
                     labelPosition="left",
                     pl="1rem",
                 ),
-                *body,
+                *base,
+                dmc.Divider(
+                    label="Fields",
+                    mt="2rem",
+                    mb="1rem",
+                    labelPosition="left",
+                    pl="1rem",
+                ),
+                *fields,
             ],
             px="1rem",
             py="2rem",

@@ -19,5 +19,5 @@ pre-commit = ">=3.7.1,<3.8"
 
 [pypi-dependencies]
 markdown2dash = "*"
-dash-pydantic-form = ">=0.9"
+dash-pydantic-form = ">=0.13"
 # dash_pydantic_form = { path = "../dash-pydantic-form", editable = true }

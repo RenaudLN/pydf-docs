@@ -1,6 +1,6 @@
 from typing import Literal
 
-from dash_pydantic_form import FormSection, ModelForm, Sections
+from dash_pydantic_form import AccordionFormLayout, FormSection, ModelForm
 from pydantic import BaseModel, Field
 
 Continent = Literal[
@@ -25,7 +25,7 @@ component = ModelForm(
     User,
     "new_user",
     "sections",
-    sections=Sections(
+    form_layout=AccordionFormLayout(
         sections=[
             FormSection(
                 name="General",
@@ -41,6 +41,5 @@ component = ModelForm(
             ),
         ],
         remaining_fields_position="top",
-        render="accordion",
     ),
 )
