@@ -25,7 +25,7 @@ You can add control the flow of your form using `FormLayout`.
 
 These 3 layout accept:
 * `sections` which is a list of `FormSection` objects
-* `remaining_fields_position` which can be `"top"`, `"bottom"` or `"none"`
+* `remaining_fields_position` which can be `top`, `bottom` or `none`
 * `render_kwargs` which are keyword arguments passed to the dmc Accordion, Tabs and Steps components respectively.
 
 .. exec::docs.form_layout.built_in_layouts
@@ -46,7 +46,7 @@ You will need to:
     * path (for the form ids)
     * field_inputs, a dictionary of inputs for each field
 
-You can use the `FormLayout` subclasses directly in you ModelForm, or use `FormLayout.load(layout="<layout_name>", **layout_kwargs)`. If you do so, make sure the `FormLayout` subclass is imported in your application.
+You can use the `FormLayout` subclasses directly in you ModelForm, or use `FormLayout.load(layout='layout_name', **layout_kwargs)`. If you do so, make sure the `FormLayout` subclass is imported in your application.
 
 ### API
 
