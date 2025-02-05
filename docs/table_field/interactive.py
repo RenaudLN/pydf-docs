@@ -4,7 +4,7 @@ import dash_mantine_components as dmc
 from dash import Input, Output, State, callback
 from dash_pydantic_form import ModelForm, fields
 from dash_pydantic_utils import model_construct_recursive
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 BASE_RENDER = "accordion"
 
@@ -39,7 +39,7 @@ def create_form(
 
 
 class Options(BaseModel):
-    title: str | None = Field(title="Title", default=None)
+    title: str | None = Field(title="Title", default="Pets")
     description: str | None = Field(title="Description", default=None)
     with_upload: bool = Field(title="With upload", default=True)
     with_download: bool = Field(title="With download", default=True)
@@ -47,6 +47,13 @@ class Options(BaseModel):
     read_only: bool = Field(title="Read only", default=False)
     required: bool = Field(title="Required", default=False)
     table_height: int = Field(title="Table height", default=300)
+
+    @field_validator("title", mode="before")
+    @classmethod
+    def validate_title(cls, v):
+        if not v:
+            return None
+        return v
 
 
 component = dmc.SimpleGrid(

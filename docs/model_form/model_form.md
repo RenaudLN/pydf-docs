@@ -77,7 +77,17 @@ The displayed result will respect sections and conditionally visible fields.
 
 ### Form columns
 
-TODO: write up
+The ModelForm uses a grid layout that collapses to a single column when the container width is under 40rem.
+Above this container width, the grid has a default of 4 columns and each field defaults to 50% of the grid columns.
+
+You can change the number of form columns with `form_cols` (e.g. `ModelForm(..., form_cols=12)`).
+You can change the number of columns each field spans by passing `n_cols` in its field representation. You can either pass
+* An int number of columns
+* A float between 0 and 1 as a proportion of the grid columns.
+
+.. admonition::Note
+    :icon: fluent:info-16-regular
+    As of 0.14, you cannot customise the container width breakpoint. This may be improved in a future version.
 
 ### Store input progress
 
