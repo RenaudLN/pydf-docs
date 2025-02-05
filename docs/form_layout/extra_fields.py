@@ -3,7 +3,7 @@ from typing import Literal
 import dash_mantine_components as dmc
 from dash import Input, Output, State, callback
 from dash_pydantic_form import AccordionFormLayout, FormSection, ModelForm
-from dash_pydantic_form.utils import model_construct_recursive
+from dash_pydantic_utils import model_construct_recursive
 from pydantic import BaseModel, Field
 
 Continent = Literal[

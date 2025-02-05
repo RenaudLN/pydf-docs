@@ -20,10 +20,10 @@ component = ModelForm(
     "user",
     "interactive",
     fields_repr={
-        "stats": fields.Model(
-            fields_repr={
+        "stats": {
+            "fields_repr": {
                 "wins": fields.Number(input_kwargs={"placeholder": "Oh yeah!"}),
-            }
-        )
+            },
+        },
     },
 )

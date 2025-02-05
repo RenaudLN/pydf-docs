@@ -3,7 +3,7 @@ import json
 import dash_mantine_components as dmc
 from dash import Input, Output, callback
 from dash_pydantic_form import ModelForm
-from dash_pydantic_form.quantity import Quantity
+from dash_pydantic_utils import Quantity
 from pydantic import BaseModel, Field
 
 default_repr_kwargs = {"decimalScale": 2, "thousandSeparator": ","}
