@@ -89,9 +89,15 @@ You can change the number of columns each field spans by passing `n_cols` in its
     :icon: fluent:info-16-regular
     As of 0.14, you cannot customise the container width breakpoint. This may be improved in a future version.
 
-### Store input progress
+### Store form progress
 
-TODO: write up
+The ModelForm can store the progress of the update so that they are retrieved for instance if the page is reloaded, a modal is closed and re-opened, etc.
+
+To activate this behaviour, set `store_progress` to `True` or `local` to store to local storage, or `session` to store to session storage (session storage is lost if the tab or browser is closed).
+
+There are 2 behaviours to restore the stored data:
+* The default is `notify` which will ask the user whether they want to use the stored form data
+* Or `auto` which will directly update the form with the stored form data.
 
 ### API
 
