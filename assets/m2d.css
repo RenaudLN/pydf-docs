@@ -36,6 +36,12 @@ h3.m2d-heading {
 
 .m2d-block-exec > *:first-child {
     margin-bottom: 10px;
+
+    @media (max-width: 40rem) {
+        & {
+            padding: 0.75rem 1rem !important;
+        }
+    }
 }
 
 .m2d-block-exec {

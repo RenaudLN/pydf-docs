@@ -22,7 +22,7 @@ class FieldModel(BaseModel):
     type_: str = "string"
     name: str = Field(
         pattern="^[a-z][a-z0-9_]*$",
-        json_schema_extra={"repr_kwargs": {"n_cols": 3, "placeholder": "snake_case field name"}},
+        json_schema_extra={"repr_kwargs": {"n_cols": 3, "placeholder": "snake_case"}},
     )
     title: str | None = Field(default=None, json_schema_extra={"repr_kwargs": {"n_cols": 3}})
     default: str | None = make_default_field()
@@ -343,69 +343,66 @@ class CustomModel(BaseModel):
 dummy_output_store = dcc.Store(data={}, id=ModelForm.ids.main("form-definition", "dynamic"))
 
 component = dmc.MantineProvider(
-    dmc.Container(
-        dmc.Stack(
-            [
-                dmc.Box(
-                    [
-                        dmc.Text("Custom form definition", fw="bold", mb="md"),
-                        ModelForm(
-                            CustomModel,
-                            aio_id="form-definition",
-                            form_id="base",
-                            store_progress="session",
-                            restore_behavior="auto",
-                            submit_on_enter=True,
-                            form_cols=12,
-                            debounce=750,
-                            fields_repr={
-                                "fields": {
-                                    "fields_repr": {
-                                        "type_": fields.Select(
-                                            title="",
-                                            data=[{"label": x.title(), "value": x} for x in sorted(options)],
-                                            searchable=True,
-                                        ),
-                                    },
+    dmc.Stack(
+        [
+            dmc.Box(
+                [
+                    dmc.Text("Custom form definition", fw="bold", mb="md"),
+                    ModelForm(
+                        CustomModel,
+                        aio_id="form-definition",
+                        form_id="base",
+                        store_progress="session",
+                        restore_behavior="auto",
+                        submit_on_enter=True,
+                        form_cols=12,
+                        debounce=750,
+                        fields_repr={
+                            "fields": {
+                                "fields_repr": {
+                                    "type_": fields.Select(
+                                        title="",
+                                        data=[{"label": x.title(), "value": x} for x in sorted(options)],
+                                        searchable=True,
+                                    ),
                                 },
                             },
-                            form_layout=TabsFormLayout(
-                                sections=[
-                                    FormSection(
-                                        name="Model",
-                                        fields=["model_name", "fields"],
-                                    ),
-                                    FormSection(
-                                        name="Form",
-                                        fields=["form_cols", "layout", "layout_options"],
-                                    ),
-                                ]
-                            ),
+                        },
+                        form_layout=TabsFormLayout(
+                            sections=[
+                                FormSection(
+                                    name="Model",
+                                    fields=["model_name", "fields"],
+                                ),
+                                FormSection(
+                                    name="Form",
+                                    fields=["form_cols", "layout", "layout_options"],
+                                ),
+                            ]
                         ),
-                    ],
-                    p="0.5rem",
-                ),
-                dmc.Paper(
-                    [
-                        dmc.Text("Form output", fw="bold", mb="md"),
-                        dmc.Box(dummy_output_store, id="form-container"),
-                    ],
-                    withBorder=True,
-                    p="0.5rem 1rem",
-                    radius="md",
-                ),
-                dmc.Paper(
-                    [
-                        dmc.Text("Equivalent model", fw="bold", mb="md"),
-                        dmc.Box(id="model-container"),
-                    ],
-                    withBorder=True,
-                    p="0.5rem 1rem",
-                    radius="md",
-                ),
-            ],
-        ),
-        p="2rem",
+                    ),
+                ],
+                p="0.5rem",
+            ),
+            dmc.Paper(
+                [
+                    dmc.Text("Form output", fw="bold", mb="md"),
+                    dmc.Box(dummy_output_store, id="form-container"),
+                ],
+                withBorder=True,
+                p="0.5rem 1rem",
+                radius="md",
+            ),
+            dmc.Paper(
+                [
+                    dmc.Text("Equivalent model", fw="bold", mb="md"),
+                    dmc.Box(id="model-container"),
+                ],
+                withBorder=True,
+                p="0.5rem 1rem",
+                radius="md",
+            ),
+        ],
     ),
     defaultColorScheme="dark",
 )
