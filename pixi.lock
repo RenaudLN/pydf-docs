@@ -93,7 +93,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310ha39cb0e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/65/45/77b1db0bd7c3b58e229795ced8029044a10c383f6475e859353381809aa8/dash_pydantic_form-0.14.6-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/56/9f/9a96ebd3c69910e4cc545dd3645ba01a019e22d25dede80da9e93bee2fa8/dash_pydantic_form-0.14.7-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/36/02/e04155c8ccd3228c94aa58db0e67875c8392ec53341a6b81d9d47fdf27ec/dash_pydantic_utils-0.14.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/c6/b2/454d6e7f0158951d8a78c2e1eb4f69ae81beb8dca5fee9809c6c99e9d0d0/fsspec-2024.10.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
@@ -400,9 +400,9 @@ packages:
   timestamp: 1731008484792
 - kind: pypi
   name: dash-pydantic-form
-  version: 0.14.6
-  url: https://files.pythonhosted.org/packages/65/45/77b1db0bd7c3b58e229795ced8029044a10c383f6475e859353381809aa8/dash_pydantic_form-0.14.6-py3-none-any.whl
-  sha256: 37d08c5ac0b82c1faa75acdcaf5c933e66533cb6e24346348d71e3d3017bdbe9
+  version: 0.14.7
+  url: https://files.pythonhosted.org/packages/56/9f/9a96ebd3c69910e4cc545dd3645ba01a019e22d25dede80da9e93bee2fa8/dash_pydantic_form-0.14.7-py3-none-any.whl
+  sha256: e96487028bbe2a2c32d29ecb063680d6e0b037794ac20916f51dccc0e5cb0331
   requires_dist:
   - dash-ag-grid>=31
   - dash-iconify

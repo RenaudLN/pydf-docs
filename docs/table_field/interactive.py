@@ -70,7 +70,7 @@ component = dmc.SimpleGrid(
             fields_repr={
                 "table_height": fields.Slider(input_kwargs={"min": 150, "max": 400, "step": 50}),
             },
-            debounce_inputs=250,
+            debounce=250,
         ),
     ],
     cols={"base": 1, "sm": 4},

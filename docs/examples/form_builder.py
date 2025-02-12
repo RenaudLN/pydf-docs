@@ -357,7 +357,7 @@ component = dmc.MantineProvider(
                             restore_behavior="auto",
                             submit_on_enter=True,
                             form_cols=12,
-                            debounce_inputs=750,
+                            debounce=750,
                             fields_repr={
                                 "fields": {
                                     "fields_repr": {

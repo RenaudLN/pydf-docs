@@ -57,7 +57,7 @@ component = dmc.SimpleGrid(
             Options,
             aio_id="list",
             form_id="interactive-options",
-            debounce_inputs=250,
+            debounce=250,
         ),
     ],
     cols={"base": 1, "sm": 4},

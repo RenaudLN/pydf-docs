@@ -73,7 +73,7 @@ component = dmc.SimpleGrid(
                     LayoutOptions,
                     aio_id="layout",
                     form_id="interactive-layout",
-                    debounce_inputs=250,
+                    debounce=250,
                 ),
             ],
         ),
