@@ -1,10 +1,11 @@
 ---
 name: ModelForm
 description: Use the ModelForm to automatically create a form for a Pydantic model.
-endpoint: /api/model_form
+endpoint: /form/model_form
 package: dash_pydantic_form
 icon: fluent:form-24-regular
 order: 1
+section: form
 ---
 
 .. toc::

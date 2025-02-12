@@ -1,10 +1,11 @@
 ---
 name: fields.Table
 description: fields.Table is the base field representation for list of nested pydantic models.
-endpoint: /api/table_field
+endpoint: /fields/table
 package: dash_pydantic_form
 icon: fluent:table-freeze-row-24-regular
 order: 7
+section: fields
 ---
 
 .. toc::

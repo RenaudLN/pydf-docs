@@ -1,10 +1,11 @@
 ---
 name: FormLayout
 description: Use FormLayout to add sections and steps to your form.
-endpoint: /api/form_layout
+endpoint: /form/form_layout
 package: dash_pydantic_form
 icon: fluent:align-space-evenly-vertical-24-regular
 order: 2
+section: form
 ---
 
 .. toc::

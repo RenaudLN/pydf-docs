@@ -12,8 +12,11 @@ category_data = {
 
 
 def create_content(data):
-    base = []
-    fields = []
+    sections = {
+        "form": [],
+        "fields": [],
+        "examples": [],
+    }
     entries = sorted(
         [datum for datum in data if datum["path"] not in excluded_links],
         key=lambda d: d["order"] or 1000,
@@ -24,10 +27,10 @@ def create_content(data):
             href=entry["path"],
             className="navbar-link",
         )
-        if "fields" in entry["name"]:
-            fields.append(link)
-        else:
-            base.append(link)
+        if entry.get("section") not in sections:
+            raise ValueError(f"Unknown section in {entry['name']}: {entry.get('section')}")
+
+        sections[entry.get("section")].append(link)
 
     return dmc.ScrollArea(
         offsetScrollbars=True,
@@ -44,23 +47,23 @@ def create_content(data):
                     href="/",
                     className="navbar-link",
                 ),
-                dmc.Divider(
-                    label="Form",
-                    mt="2rem",
-                    mb="1rem",
-                    labelPosition="left",
-                    pl="1rem",
-                ),
-                *base,
-                dmc.Divider(
-                    label="Fields",
-                    mt="2rem",
-                    mb="1rem",
-                    labelPosition="left",
-                    pl="1rem",
-                ),
-                *fields,
-            ],
+            ]
+            + sum(
+                [
+                    [
+                        dmc.Divider(
+                            label=k.title(),
+                            mt="2rem",
+                            mb="1rem",
+                            labelPosition="left",
+                            pl="1rem",
+                        )
+                    ]
+                    + v
+                    for k, v in sections.items()
+                ],
+                [],
+            ),
             px="1rem",
             py="2rem",
         ),

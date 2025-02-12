@@ -1,10 +1,11 @@
 ---
 name: fields.Dict
 description: fields.Dict is the base field representation for dict of scalar and nested pydantic models.
-endpoint: /api/dict_field
+endpoint: /fields/dict
 package: dash_pydantic_form
 icon: lucide:curly-braces
 order: 6
+section: fields
 ---
 
 .. toc::

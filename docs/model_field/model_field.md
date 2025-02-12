@@ -1,10 +1,11 @@
 ---
 name: fields.Model
 description: fields.Model is the base field representation for nested pydantic models.
-endpoint: /api/model_field
+endpoint: /fields/model
 package: dash_pydantic_form
 icon: oui:nested
 order: 4
+section: fields
 ---
 
 .. toc::

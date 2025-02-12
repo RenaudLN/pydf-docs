@@ -29,6 +29,7 @@ class Meta(BaseModel):
     category: str | None = None
     icon: str | None = None
     order: int = 1000
+    section: str | None = None
 
 
 def make_endpoint(name):
@@ -62,4 +63,5 @@ for file in files:
         category=metadata.category,
         icon=metadata.icon,
         order=metadata.order,
+        section=metadata.section,
     )

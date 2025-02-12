@@ -1,10 +1,11 @@
 ---
 name: DMC fields
 description: Dash pydantic form leverages dash-mantine-components to define fields inputs.
-endpoint: /api/dmc_fields
+endpoint: /fields/dmc_fields
 package: dash_pydantic_form
 icon: fluent:frame-16-regular
 order: 3
+section: fields
 ---
 
 .. toc::

@@ -1,10 +1,11 @@
 ---
 name: fields.Quantity
 description: Use the Quantity to automatically create a form for a field with value and unit.
-endpoint: /api/quantity
+endpoint: /fields/quantity
 package: dash_pydantic_form
 icon: fluent-mdl2:quantity
 order: 9
+section: fields
 ---
 
 .. toc::

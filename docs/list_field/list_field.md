@@ -1,10 +1,11 @@
 ---
 name: fields.List
 description: fields.List is the base field representation for list of scalar and nested pydantic models.
-endpoint: /api/list_field
+endpoint: /fields/list
 package: dash_pydantic_form
 icon: fluent:apps-list-detail-20-regular
 order: 5
+section: fields
 ---
 
 .. toc::
