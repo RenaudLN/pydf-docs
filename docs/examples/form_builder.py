@@ -1,16 +1,19 @@
 # ruff: noqa: D101, D102, D103, D104, D105, PLR2004
+import inspect
 import json
 from datetime import date, datetime, time
 from types import UnionType
 from typing import Annotated, ClassVar, Literal, Union, get_args, get_origin
 
 import dash_mantine_components as dmc
-from dash import ALL, Input, Output, State, callback, clientside_callback, dcc, no_update
+from dash import ALL, MATCH, Input, Output, State, callback, clientside_callback, dcc, no_update
 from dash_pydantic_form import FormLayout, ModelForm, TabsFormLayout, fields
+from dash_pydantic_form.fields import get_default_repr
+from dash_pydantic_form.fields.base_fields import BaseField
 from dash_pydantic_form.form_section import FormSection, Position
 from dash_pydantic_form.ids import value_field
 from dash_pydantic_utils import SEP, model_construct_recursive
-from pydantic import BaseModel, Field, TypeAdapter, ValidationError, create_model, field_validator
+from pydantic import BaseModel, Field, RootModel, TypeAdapter, ValidationError, create_model, field_validator
 from pydantic_core import PydanticUndefined
 
 
@@ -35,11 +38,26 @@ class FieldModel(BaseModel):
         title="Representation options",
         default_factory=dict,
         description="Keyword arguments passed to the field representation",
+        json_schema_extra={
+            "repr_kwargs": {
+                "key_suggestions": sorted(
+                    set(BaseField.model_fields) - {"n_cols", "input_kwargs", "title", "description", "required"}
+                ),
+            },
+        },
     )
     pydantic_kwargs: dict[str, str] = Field(
         title="Pydantic field options",
         default_factory=dict,
         description="Keyword arguments passed to the pydantic Field",
+        json_schema_extra={
+            "repr_kwargs": {
+                "key_suggestions": sorted(
+                    set(inspect.signature(Field).parameters)
+                    - {"default", "default_factory", "title", "description", "required"}
+                ),
+            },
+        },
     )
 
     annotation: ClassVar[type | None] = None
@@ -201,7 +219,7 @@ class TimeFieldModel(FieldModel):
 
 class SelectFieldModel(FieldModel):
     type_: Literal["select"] = "select"
-    options: list[str] = Field(json_schema_extra={"repr_type": "Tags"})
+    options: list[str] = Field(json_schema_extra={"repr_type": "Tags"}, default_factory=list)
     repr_type: Literal["Select", "RadioItems"] = Field("Select", json_schema_extra={"repr_type": "RadioItems"})
 
     def get_annotation(self):
@@ -213,7 +231,7 @@ class SelectFieldModel(FieldModel):
 
 class MultiSelectFieldModel(FieldModel):
     type_: Literal["multiselect"] = "multiselect"
-    options: list[str] = Field(json_schema_extra={"repr_type": "Tags"})
+    options: list[str] = Field(json_schema_extra={"repr_type": "Tags"}, default_factory=list)
     default: list[str] | None = make_default_field(repr_type="Tags")
 
     def get_annotation(self):
@@ -250,7 +268,8 @@ class TableFieldModel(FieldModel):
                     "description": {"n_cols": 6},
                 }
             }
-        }
+        },
+        default_factory=list,
     )
 
     default_repr = {"repr_type": "Table"}
@@ -474,6 +493,33 @@ def check_dynamic_form(trigger, form_data, form_definition):
         }
         return errors
     return None
+
+
+@callback(
+    Output(fields.Dict.ids.item_key("form-definition", "base", "repr_kwargs", MATCH, meta=ALL), "data"),
+    Input(value_field("form-definition", "base", "type_", MATCH, meta="discriminator"), "value"),
+)
+def update_repr_kwargs_suggestions(type_: str):
+    field_model = RootModel[AllFieldModelUnion]({"type_": type_, "name": "a"}).root
+    annotation, field_info = field_model.to_dynamic_field()
+    field_info.annotation = annotation
+    field_repr = get_default_repr(field_info)
+    suggested_keys = [
+        {
+            "group": "pydf options",
+            "items": sorted(
+                set(field_repr.model_fields) - {"n_cols", "input_kwargs", "title", "description", "required"}
+            ),
+        }
+    ]
+    if field_repr.base_component:
+        suggested_keys.append(
+            {
+                "group": "Component options",
+                "items": sorted(set(inspect.signature(field_repr.base_component).parameters)),
+            }
+        )
+    return [suggested_keys]
 
 
 clientside_callback(
