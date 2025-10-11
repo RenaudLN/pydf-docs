@@ -9,9 +9,9 @@ platforms = ["linux-64"]
 [tasks]
 
 [dependencies]
-dash = ">=2.18.2,<3"
+dash = ">=3.1"
 plotly = ">=5.22.0,<5.23"
-dash-mantine-components = ">=0.14.6,<0.15"
+dash-mantine-components = ">=2"
 dash-iconify = ">=0.1.2,<0.2"
 pydantic = ">=2.7.1,<2.8"
 python-frontmatter = ">=1.1.0,<1.2"
@@ -21,6 +21,7 @@ python = "3.10.*"
 
 [pypi-dependencies]
 markdown2dash = "*"
-dash-pydantic-form = ">=0.14.7"
+dash-pydantic-form = ">=0.17.2"
+dash-pydantic-utils = ">=0.17.2"
 # dash-pydantic-form = { path = "../dash-pydantic-form/packages/dash-pydantic-form", editable = true }
 # dash-pydantic-utils = { path = "../dash-pydantic-form/packages/dash-pydantic-utils", editable = true }

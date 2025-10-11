@@ -1,9 +1,8 @@
 import dash
-from dash import Dash, _dash_renderer
+from dash import Dash
 
 from components.appshell import create_appshell
 
-_dash_renderer._set_react_version("18.2.0")
 stylesheets = [
     "https://unpkg.com/@mantine/dates@7/styles.css",
     "https://unpkg.com/@mantine/code-highlight@7/styles.css",
@@ -34,4 +33,4 @@ app.layout = create_appshell(dash.page_registry.values())
 server = app.server
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run(debug=True)
