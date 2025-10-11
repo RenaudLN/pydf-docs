@@ -93,8 +93,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py310ha39cb0e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.6-ha6fb4c9_0.conda
       - pypi: https://files.pythonhosted.org/packages/f9/d9/f4dfdeb1bc01eb1c57614cd3e35b29be24cc3a238d9f8d2e57312d465357/dash_ag_grid-31.2.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/ba/96/97e2401e62992e320a73ecd2675fa2fbb2e9182d04c4292173e2d7a0072c/dash_pydantic_form-0.17.2-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/09/24/358209dc487baeed90449b3a4243635500494dc3d019ae8738edc86e9e52/dash_pydantic_utils-0.17.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/12/8590e3f0ca7657ca508b1504ab2b1972ca9f45abc02ee44f6378d58598cd/dash_pydantic_form-0.17.5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/36/ed/c6a60e6f75bd2b8bdccce4f6a1f4f1beeac4675ec65d795d880f32d7077b/dash_pydantic_utils-0.17.5-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/44/57/8db39bc5f98f042e0153b1de9fb88e1a409a33cda4dd7f723c2ed71e01f6/docutils-0.22-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/c6/b2/454d6e7f0158951d8a78c2e1eb4f69ae81beb8dca5fee9809c6c99e9d0d0/fsspec-2024.10.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl
@@ -315,10 +315,10 @@ packages:
   - pkg:pypi/dash-mantine-components?source=hash-mapping
   size: 556299
   timestamp: 1751432201906
-- pypi: https://files.pythonhosted.org/packages/ba/96/97e2401e62992e320a73ecd2675fa2fbb2e9182d04c4292173e2d7a0072c/dash_pydantic_form-0.17.2-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/ee/12/8590e3f0ca7657ca508b1504ab2b1972ca9f45abc02ee44f6378d58598cd/dash_pydantic_form-0.17.5-py3-none-any.whl
   name: dash-pydantic-form
-  version: 0.17.2
-  sha256: acf29d9b3d7bf54a18a13d165d62bd004d4b00987f42e9d2648ff76c4bb6becb
+  version: 0.17.5
+  sha256: 80716c3b8347047e21548a43ac663731c7a4358832bca999342c2c282ad6fa37
   requires_dist:
   - dash-ag-grid>=31
   - dash-iconify
@@ -331,10 +331,10 @@ packages:
   - pre-commit ; extra == 'dev'
   - pytest ; extra == 'dev'
   requires_python: '>=3.10,<3.14'
-- pypi: https://files.pythonhosted.org/packages/09/24/358209dc487baeed90449b3a4243635500494dc3d019ae8738edc86e9e52/dash_pydantic_utils-0.17.2-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/36/ed/c6a60e6f75bd2b8bdccce4f6a1f4f1beeac4675ec65d795d880f32d7077b/dash_pydantic_utils-0.17.5-py3-none-any.whl
   name: dash-pydantic-utils
-  version: 0.17.2
-  sha256: e5f4bb8ded876b5887467d79b2b5bcbae122370e3b9271b5c49177efbad36a5a
+  version: 0.17.5
+  sha256: 8842b75be5a321ee126af20fde9f1400012696eb01f728cadc914ca046b4a87c
   requires_dist:
   - pydantic==2.*
   - pre-commit ; extra == 'dev'
