@@ -21,7 +21,7 @@ python = "3.10.*"
 
 [pypi-dependencies]
 markdown2dash = "*"
-dash-pydantic-form = ">=0.17.2"
-dash-pydantic-utils = ">=0.17.2"
+dash-pydantic-form = ">=0.17.5"
+dash-pydantic-utils = ">=0.17.5"
 # dash-pydantic-form = { path = "../dash-pydantic-form/packages/dash-pydantic-form", editable = true }
 # dash-pydantic-utils = { path = "../dash-pydantic-form/packages/dash-pydantic-utils", editable = true }

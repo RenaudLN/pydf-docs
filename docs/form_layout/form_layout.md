@@ -42,12 +42,17 @@ You will need to:
 * Add a `layout` field of type `Literal` with one value. This is used to discriminate between layout for serialisation/deserialisation.
 * Add whatever additional fields you need for the layout.
 * Implement the `render` method which takes the following arguments:
+    * field_inputs, a dictionary of inputs for each field
     * aio_id (for the form ids)
     * form_id (for the form ids)
     * path (for the form ids)
-    * field_inputs, a dictionary of inputs for each field
+    * read_only (to manage the behaviour in read_only mode)
+    * form_cols (if the layout requires knowing the number of forom columns)
 
-You can use the `FormLayout` subclasses directly in you ModelForm, or use `FormLayout.load(layout='layout_name', **layout_kwargs)`. If you do so, make sure the `FormLayout` subclass is imported in your application.
+Then use the `FormLayout` subclasses directly in you ModelForm.
+
+.. exec::docs.form_layout.custom_layouts
+    :code: true
 
 ### API
 
